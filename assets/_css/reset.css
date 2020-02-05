@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html	
+{
+	scroll-behavior: smooth;
+}
+
+body 
+{
+	margin:0px; padding:0px;
+}
+
+ul 
+{
+	list-style:none; margin:0px; padding:0px;
+}
+a
+{
+	 text-decoration:none; font-family: 'Roboto', sans-serif;
+}
+span
+{
+	color:rgb(196, 203, 207); font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 
+{
+	color:#fff; padding:0px; margin:0px;
+}
+
+
+input 
+{
+	font-family: 'Roboto', sans-serif; font-size:14px;
+}
+
+input::placeholder
+{
+	font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,18 @@
+/*
+/* Definindo Estilo do conteudo principal (main)
+*/
+
+
+.app-content 
+{
+	grid-area:main; background:#E7EBF1;
+}
+
+.app-main
+{
+	padding-top:40px;
+}
+
+/*
+/* Finnaly do estilo do  main
+*/

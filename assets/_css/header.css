@@ -1,0 +1,373 @@
+:root
+{
+	--menu-oppened:230px;
+	--menu-exit:80px;
+	--button-home:#fcd5bd;
+	--button-porti:#DCD0FF;
+	--button-blog:#B1D9FF;
+	--button-services:#ffb1f2;
+}
+
+
+
+.app
+{
+	display:grid; display:-ms-grid; grid-template-areas:"aside main" "aside main" "aside main";
+	grid-template-columns:minmax(var(--menu-oppened), var(--menu-exit)) auto; height:100vh;
+}
+
+
+
+/*
+/* CSSOO
+*/
+
+.app--align
+{
+	padding:25px; box-sizing:border-box;
+}
+.flex-row--align
+{
+	display:flex; display:-webkit-box; display:-ms-flexbox; align-items:center; -webkit-box-align:center; -ms-flex-align:center;
+}
+
+.flex-row-column-align
+{
+	display:flex; display:-webkit-box; display:-ms-flexbox; align-items:center; -webkit-box-align:center; -ms-flex-align:center;
+	justify-content:center; -webkit-box-pack:center; -ms-flex-pack:center;
+}
+.align--center
+{
+ justify-content:center;
+}
+/*
+/* the end CSSOO
+*/
+
+
+/*
+/* Config style of Aside
+*/
+
+.app-aside
+{
+	grid-area:aside;
+}
+
+.app-aside--header
+{
+	width:100%; height:68px;  background:#0084FF;
+}
+.aside-area-menu
+{
+	width:100%; max-width:180px; height:40px;  display: flex;
+  display: -ms-flexbox;
+}
+
+.header-burguer-container
+{
+	width:100%; max-width:30px; height:20px; padding:5px; cursor:pointer; overflow:hidden;
+}
+
+.burguer-line
+{
+	width:100%; max-width:30px; height:2px; background-color:#fff;  transition:background 0.2s linear;
+}
+
+.burguer-line::before
+{
+	content:""; display:block; width:100%; max-width:30px; height:2px; background-color:#fff; transform:rotate(0px); transform:translateY(-9px);
+	/*transform:translateY(-9px);*/ transition:transform 0.3s linear;
+}
+
+.burguer-line::after
+{
+	content:""; display:block; width:100%; max-width:30px; height:2px; background-color:#fff; transform:rotate(0px);
+	/*transform:translateY(7px);*/ transform:translateY(7px); transition:transform 0.3s linear;
+}
+
+.header-burguer-container:hover .burguer-line
+{
+   background-color:#C6CDD1; transition:background 0.3s linear;
+}
+.header-burguer-container:hover .burguer-line::before
+{
+   background-color:#C6CDD1; transition:background 0.3s linear;
+}
+.header-burguer-container:hover .burguer-line::after
+{
+  background-color:#C6CDD1; transition:background 0.3s linear;
+}
+.app-aside--nav
+{
+	width:100%;
+}
+.nav-menu li
+{
+	padding:10px;
+}
+
+.nav-menu li a
+{
+  width:100%; display:flex; align-items:center;
+}
+
+.nav-menu li:hover a span
+{
+ color:#0084FF; transition:color 0.3s linear;
+}
+
+.nav-menu-svg-icon
+{
+       display: flex; justify-content: center;  align-items: center; width: 30px;  height: 30px;
+       border-radius: 50%;  border: 4px solid #fff;
+}
+
+.nav-menu li a span
+{
+	margin-left:20px;
+}
+
+.header-show-more
+{
+  display:none;
+}
+
+.icon-menu-svg
+{
+	width:20px; height:20px; fill:#fff;
+}
+[data-home]
+{
+	background-color: var(--button-home); box-shadow: 0px 0px 0px 3px var(--button-home);
+}
+
+[data-portifolio]
+{
+	background-color:var(--button-porti); box-shadow: 0px 0px 0px 3px var(--button-porti);
+}
+
+[data-blog]
+{
+	background-color:var(--button-blog); box-shadow: 0px 0px 0px 3px var(--button-blog);
+}
+
+[data-services]
+{
+	background-color:var(--button-services); box-shadow: 0px 0px 0px 3px var(--button-services);
+}
+/*
+/* the end style of aside
+*/
+
+
+/*
+/* Config style of header
+*/
+
+.app-header
+{
+  height:68px; display:flex; display:-webkit-box; display:-ms-flexbox; justify-content:center; -webkit-box-pack:center; -ms-flex-pack:center;
+  background-color:#fff;
+}
+.mobile-header
+{
+  display:none;
+}
+
+/* viewport mobile */
+.header-mobile-viewport
+{
+	width:100%; max-width:30px; height:20px; padding:5px; cursor:pointer; overflow:hidden;
+}
+.ativo .burguer-mobile
+{
+background-color:#0084FF; transition:background 0.2s linear; user-select: none;
+}
+.ativo .burguer-mobile::after
+{
+transform:translateY(-2px) rotate(-45deg); transition:transform 0.3s linear; user-select: none;
+}
+.ativo .burguer-mobile::before
+{
+transform:rotate(45deg); transition:transform 0.3s linear; user-select:none;
+}
+
+
+/* .header-mobile viewport mobile  */
+
+.burguer-mobile
+{
+	width:100%; max-width:30px; height:2px; background-color:#fff;  transition:background 0.2s linear;
+}
+
+.burguer-mobile::before
+{
+	content:""; display:block; width:100%; max-width:30px; height:2px; background-color:#fff; transform:rotate(0px); transform:translateY(-9px);
+	/*transform:translateY(-9px);*/ transition:transform 0.3s linear;
+}
+
+.burguer-mobile::after
+{
+	content:""; display:block; width:100%; max-width:30px; height:2px; background-color:#fff; transform:rotate(0px);
+	/*transform:translateY(7px);*/ transform:translateY(7px); transition:transform 0.3s linear;
+}
+
+
+
+.header-container
+{
+	width:100%; max-width:1010px; display:flex;  display:-ms-flexbox;
+}
+.header-search
+{
+	 flex-grow:1; display:flex; display:-ms-flexbox; align-items: center;
+}
+
+.header-logo
+{
+	flex-grow:1; display:flex; display:-ms-flexbox; align-items: center; padding-left:25px; box-sizing:border-box;
+}
+.header-profile
+{
+	 flex-grow:1; display:flex; justify-content:flex-end; align-items:center;
+}
+
+.profile-widget-area
+{
+	width:30%; display:flex;  align-items: center; flex-direction:row-reverse; justify-content:space-between;
+}
+.profile-photo
+{
+	width:40px; height:40px; border-radius:50%;
+	background-image:url('../_image/profile.jpg'); background-size:cover; background-position: center; border:1px solid #ccc;
+}
+
+.icone-header
+{
+	fill:#ABB6BB; width:20px; height:20px; cursor:pointer; transition:fill 0.3s linear;
+}
+.icone-header:hover
+{
+	fill:#0084FF;
+}
+/*
+/* Finnaly do style of header
+*/
+
+
+/* @media query */
+
+.app.ativo
+{
+  grid-template-columns:minmax(var(--menu-exit), var(--menu-exit)) auto; height:100vh;
+}
+
+.app.ativo .nav-menu li a span
+{
+	display:none;
+}
+.app.ativo .app--align
+{
+	padding:0px;
+}
+.app.ativo .nav-menu
+{
+	padding-top: 20px; display: flex;  flex-direction: column;
+    justify-content: center; align-items: center;
+}
+.app.ativo .aside-area-menu h3
+{
+	text-indent:-1000px;
+}
+.app.ativo .aside-area-menu
+{
+  justify-content: center;
+}
+.app.ativo .burguer-line
+{
+	background-color:#0084FF; transition:background 0.2s linear;
+}
+.app.ativo .burguer-line::before
+{
+	transform:rotate(45deg); transition:transform 0.3s linear;
+}
+.app.ativo .burguer-line::after
+{
+	transform:translateY(-2px) rotate(-45deg); transition:transform 0.3s linear;
+}
+
+/*  the end media query*/
+
+@media (max-width:1320px)
+{
+	.profile-widget-area { justify-content:space-around;  }
+}
+
+@media (max-width:1266px)
+{
+.app
+{
+  grid-template-columns:minmax(var(--menu-exit), var(--menu-exit)) auto; height:100vh;
+}
+
+ .nav-menu li a span
+{
+	display:none;
+}
+.app--align
+{
+	padding:0px;
+}
+.nav-menu
+{
+	padding-top: 20px; display: flex;  flex-direction: column;
+    justify-content: center; align-items: center;
+}
+.aside-area-menu h3
+{
+	text-indent:-1000px;
+}
+.aside-area-menu
+{
+  justify-content: center;
+}
+.header-burguer-container:hover .burguer-line
+{
+	background-color:#0084FF;
+}
+.burguer-line
+{
+	background-color:#0084FF; transition:background 0.2s linear;
+}
+.burguer-line::before
+{
+	transform:rotate(45deg); transition:transform 0.3s linear;
+}
+.burguer-line::after
+{
+	transform:translateY(-2px) rotate(-45deg); transition:transform 0.3s linear;
+}
+}
+
+@media (max-width:990px)
+{
+  .app
+  {
+  	display:grid; display:-ms-grid; grid-template-areas:"main main" "main main" "main main";
+  	grid-template-columns:auto; height:100vh;
+  }
+  .mobile-header { display:flex; }
+  .app-aside { position:absolute; left:-2000px;}
+  .app-header { background-color:#0084FF; }
+  .burguer-line { width:100%; max-width:30px; height:2px; background-color:#fff;  transition:background 0.2s linear; }
+  .header-burguer-container:hover .burguer-line { background-color:#C6CDD1; }
+  .burguer-line::before { transform:rotate(0px); transform:translateY(-9px); transition:transform 0.3s linear; }
+  .burguer-line::after {transform:rotate(0px);  transform:translateY(7px); transition:transform 0.3s linear;}
+  .icon-config { display:none;  }
+  .icon-msg { display:none; }
+  .icon-noti { display:none; }
+  .header-show-more { display:block; }
+  .show-notification{ fill:#fff; }
+
+}
