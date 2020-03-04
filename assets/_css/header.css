@@ -51,19 +51,35 @@
 
 .app-aside
 {
-	grid-area:aside;
+	grid-area:aside; z-index:1;
 }
 
 .app-aside--header
 {
 	width:100%; height:68px;  background:#0084FF;
 }
+.app-aside.ativo
+{
+  position:absolute; position:fixed; left:0px; top:0px; width:100%; max-width:230px; height:100vh;
+  background:#fff;
+}
+.app-aside.ativo .app-aside--header
+{
+  display:none;
+}
+.app-aside.ativo .app-aside--nav .nav-menu li
+{
+  width:100%; max-width:190px;
+}
+.app-aside.ativo .app-aside--nav .nav-menu li a span
+{
+  display:block; margin-left:20px;
+}
 .aside-area-menu
 {
 	width:100%; max-width:180px; height:40px;  display: flex;
   display: -ms-flexbox;
 }
-
 .header-burguer-container
 {
 	width:100%; max-width:30px; height:20px; padding:5px; cursor:pointer; overflow:hidden;
@@ -102,7 +118,7 @@
 {
 	width:100%;
 }
-.nav-menu li
+.nav-menu li a
 {
 	padding:10px;
 }
@@ -130,7 +146,7 @@
 
 .header-show-more
 {
-  display:none;
+   display:none;
 }
 
 .icon-menu-svg
@@ -168,52 +184,12 @@
 .app-header
 {
   height:68px; display:flex; display:-webkit-box; display:-ms-flexbox; justify-content:center; -webkit-box-pack:center; -ms-flex-pack:center;
-  background-color:#fff;
+  /*background-color:#fff; z-index:-1;*/
 }
-.mobile-header
+[data-menuHeader]
 {
   display:none;
 }
-
-/* viewport mobile */
-.header-mobile-viewport
-{
-	width:100%; max-width:30px; height:20px; padding:5px; cursor:pointer; overflow:hidden;
-}
-.ativo .burguer-mobile
-{
-background-color:#0084FF; transition:background 0.2s linear; user-select: none;
-}
-.ativo .burguer-mobile::after
-{
-transform:translateY(-2px) rotate(-45deg); transition:transform 0.3s linear; user-select: none;
-}
-.ativo .burguer-mobile::before
-{
-transform:rotate(45deg); transition:transform 0.3s linear; user-select:none;
-}
-
-
-/* .header-mobile viewport mobile  */
-
-.burguer-mobile
-{
-	width:100%; max-width:30px; height:2px; background-color:#fff;  transition:background 0.2s linear;
-}
-
-.burguer-mobile::before
-{
-	content:""; display:block; width:100%; max-width:30px; height:2px; background-color:#fff; transform:rotate(0px); transform:translateY(-9px);
-	/*transform:translateY(-9px);*/ transition:transform 0.3s linear;
-}
-
-.burguer-mobile::after
-{
-	content:""; display:block; width:100%; max-width:30px; height:2px; background-color:#fff; transform:rotate(0px);
-	/*transform:translateY(7px);*/ transform:translateY(7px); transition:transform 0.3s linear;
-}
-
-
 
 .header-container
 {
@@ -251,6 +227,14 @@ transform:rotate(45deg); transition:transform 0.3s linear; user-select:none;
 {
 	fill:#0084FF;
 }
+.body
+{
+  width:100%; height:100vh; background-color:rgba(0, 0, 0, 0.5);  position:absolute; top:0px; left:0px; display:none;
+}
+.body--invisible
+{
+  display:block;
+}
 /*
 /* Finnaly do style of header
 */
@@ -284,18 +268,22 @@ transform:rotate(45deg); transition:transform 0.3s linear; user-select:none;
 {
   justify-content: center;
 }
-.app.ativo .burguer-line
+
+.app.ativo .burguer-line  
 {
-	background-color:#0084FF; transition:background 0.2s linear;
+	background-color:#0084FF; transition:background 0.01s linear;
 }
 .app.ativo .burguer-line::before
 {
-	transform:rotate(45deg); transition:transform 0.3s linear;
+	transform:rotate(45deg); transition:transform 0.2s linear;
 }
 .app.ativo .burguer-line::after
 {
-	transform:translateY(-2px) rotate(-45deg); transition:transform 0.3s linear;
+	transform:translateY(-2px) rotate(-45deg); transition:transform 0.2s linear;
 }
+
+
+
 
 /*  the end media query*/
 
@@ -357,17 +345,29 @@ transform:rotate(45deg); transition:transform 0.3s linear; user-select:none;
   	display:grid; display:-ms-grid; grid-template-areas:"main main" "main main" "main main";
   	grid-template-columns:auto; height:100vh;
   }
-  .mobile-header { display:flex; }
-  .app-aside { position:absolute; left:-2000px;}
+  [data-menuHeader] { display:flex; }
+  .app-aside 
+  { 
+  	width:100%; max-width:230px; position:absolute; height:calc(100vh - 68px); background:#fff; top:68px; transform:translateX(-2000px);
+  	transition:transform 0.2s linear; 
+  }
+  .app.ativo .app-aside 
+  {
+  	transform:translateX(0px);
+  }
+  .app.ativo .app-aside .app-aside--header { display:none;  }
+  .app.ativo .app-aside .nav-menu li a span { display:flex;  }
+  .app.ativo .app-aside .nav-menu li a { width:150px;  }
   .app-header { background-color:#0084FF; }
   .burguer-line { width:100%; max-width:30px; height:2px; background-color:#fff;  transition:background 0.2s linear; }
   .header-burguer-container:hover .burguer-line { background-color:#C6CDD1; }
+  .app.ativo .app-header .burguer-line { background-color:#0084FF;  }
   .burguer-line::before { transform:rotate(0px); transform:translateY(-9px); transition:transform 0.3s linear; }
   .burguer-line::after {transform:rotate(0px);  transform:translateY(7px); transition:transform 0.3s linear;}
   .icon-config { display:none;  }
   .icon-msg { display:none; }
   .icon-noti { display:none; }
-  .header-show-more { display:block; }
-  .show-notification{ fill:#fff; }
+  .header-show-more { width:35px; height:35px;  border-radius:50%; display:flex; background:rgba(255, 255, 255, 0.3); justify-content: center; align-items:center; }
+  .show-notification{ width:20px; height:20px; fill:#fff; }
 
 }

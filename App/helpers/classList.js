@@ -8,7 +8,7 @@ export default class ClassList {
     return classList.remove($class);
   }
 
-  toogle($class) {
+  toggle($class) {
    return (classList.contains($class)) ? this.remove() : this.remove();
   }
 
